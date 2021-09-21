@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel='stylesheet' href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <h2>Select image file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+                <img src="{{ url_for('display_image', filename=filename) }}" alt="Mountains" style="width:100%">
+    {% endif %}
+    <form method="post" name="sform" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="sfile" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" name="ssubmit" value="Submit">
+        </p>
+    </form>
+    <h2>Step 2: Select a wav file to upload</h2>
+    <form method="post" name="wform" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="sfile" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" name="wsubmit" value="Submit">
+        </p>
+    </form>
+    <!--<body>
+        <h1>Upload new File</h1>
+        <form method=post enctype=multipart/form-data>
+        <input type=file name=file>
+        <input type=submit value=Upload>
+        
+        <input type=file name=file2>
+        <input type=submit value=Upload2>
+        </form>
+    
+    <img src='/uploads/file' alt='Content image'>
+    </body>-->
+</html>

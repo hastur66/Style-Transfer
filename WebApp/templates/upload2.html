@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Content</title>
+        <link rel='stylesheet' href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <h1>AIrtist</h1>
+        <!--<h2>Select a file to upload</h2>
+        <p align='center'>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        </p>
+        {% if filename %}
+                <img src="{{ url_for('display_image', filename=filename) }}" alt="Mountains" style="width:50%">
+        {% endif %}
+        <form method="post" action="/" enctype="multipart/form-data">
+            <dl>
+                <p align='center'>
+                    <input type="file" name="file" autocomplete="off" required>
+                </p>
+            </dl>
+            <p align='center'>
+                <input type="submit" value="Submit">
+            </p>
+        </form>-->
+        <h2>Select Content file to upload</h2>
+        {% if filename %}
+                <img src="{{ url_for('display_image2', filename=filename2) }}" alt="Mountains" style="width:50%">
+        {% endif %}
+        <form method="post" name="wform" action="/" enctype="multipart/form-data">
+            <dl>
+                <p align='center'>
+                    <input type="file" name="file2" autocomplete="off" required>
+                </p>
+            </dl>
+            <p align='center'>
+                <input type="submit" name="wsubmit" value="Submit">
+            </p>
+        </form>
+        <h2>Click Next to Creat Artwork</h2>
+        <form action="{{ url_for('art_work') }}">
+            <input type="submit" value="Next" />
+        </form>
+    </body>
+</html>
